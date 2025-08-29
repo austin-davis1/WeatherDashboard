@@ -2,6 +2,7 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 import { ForecastTypeEnum } from "../utils/ForecastTypeEnum"
 import Icon from "./Icon"
 import { getWeather } from "../api"
+import Card from "./Card"
 
 type Props = {
   coords: { lat: number; lon: number }
@@ -20,7 +21,7 @@ export default function HourlyDailyWeatherCard({ coords, type }: Props) {
   })
 
   return (
-    <div className="bg-background p-8 rounded-md w-full flex flex-col gap-8 overflow-x-scroll">
+    <Card>
       <table className="table-fixed ">
         <thead>
           <tr>
@@ -74,7 +75,7 @@ export default function HourlyDailyWeatherCard({ coords, type }: Props) {
           </tr>
         </tbody>
       </table>
-    </div>
+    </Card>
   )
 }
 

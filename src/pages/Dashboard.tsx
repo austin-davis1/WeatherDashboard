@@ -5,11 +5,11 @@ import { getGeocode } from "../api"
 import { MapTypeEnum } from "../utils/MapTypeEnum"
 import LocationDropdown from "../components/LocationDropdown"
 import MapTypeDropdown from "../components/MapTypeDropdown"
-import HourlyDailyWeatherCard from "../components/DashboardWeatherCard"
 import { ForecastTypeEnum } from "../utils/ForecastTypeEnum"
 import LoadingState from "../components/LoadingState"
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import SidePanel from "@/components/SidePanel"
+import WeatherCard from "@/components/WeatherCard"
+import AdditionalWeatherInfo from "@/components/AdditionalWeatherInfo"
 
 export default function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState("Bangkok")
@@ -43,9 +43,8 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="flex flex-col gap-8 sm:mr-[var(--sidebar-width)]">
+      <div className="flex flex-col gap-8">
         <div className="flex flex-row gap-4">
-          <h1>Dashboard</h1>
           <LocationDropdown
             onChange={setSelectedLocation}
             selectedLocation={selectedLocation}
@@ -55,34 +54,16 @@ export default function Dashboard() {
         <div>
           <Map lat={lat} lon={lon} type={mapType} onMapClick={onMapClick} />
         </div>
-        <div className="flex flex-col gap-4">
-          <ToggleGroup
-            value={forecastType}
-            variant="outline"
-            type="single"
-            className="mx-auto"
-            onValueChange={(value) => {
-              if (value && value !== forecastType)
-                setForecastType(value as unknown as ForecastTypeEnum)
-            }}
-          >
-            <ToggleGroupItem
-              value={ForecastTypeEnum.HOURLY}
-              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-            >
-              Hourly
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value={ForecastTypeEnum.DAILY}
-              className="data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
-            >
-              Daily
-            </ToggleGroupItem>
-          </ToggleGroup>
-          <Suspense fallback={<LoadingState />}>
-            <HourlyDailyWeatherCard coords={{ lat, lon }} type={forecastType} />
-          </Suspense>
-        </div>
+        <Suspense fallback={<LoadingState />}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="md:col-span-1">
+              <WeatherCard coords={{ lat, lon }} />
+            </div>
+            <div className="md:col-span-1">
+              <AdditionalWeatherInfo coords={{ lat, lon }} />
+            </div>
+          </div>
+        </Suspense>
       </div>
       <SidePanel lat={lat} lon={lon} />
     </>

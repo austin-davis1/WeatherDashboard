@@ -23,7 +23,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --sidebar-width: 16rem;
-  --header-height: 4rem;
+  --header-height: 5.5rem;
 }
 
 button {

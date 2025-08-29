@@ -1,13 +1,25 @@
-import type { WeatherData } from "../types"
+import { useSuspenseQuery } from "@tanstack/react-query"
 import Icon from "./Icon"
+import { getWeather } from "@/api"
+import Card from "./Card"
+import { timeOptions } from "@/utils/timeOptions"
 
 type Props = {
-  data: WeatherData
+  coords: { lat: number; lon: number }
 }
 
-export default function WeatherCard({ data }: Props) {
+export default function WeatherCard({ coords }: Props) {
+  const { lat, lon } = coords
+  const { data } = useSuspenseQuery({
+    queryKey: ["weather", lat, lon],
+    queryFn: () =>
+      getWeather({
+        lat,
+        lon,
+      }),
+  })
   return (
-    <div className="bg-background p-8 rounded-md w-full flex flex-col gap-8">
+    <Card>
       {/* Current weather */}
       <div className="flex justify-between">
         <h1 className="!text-6xl font-semibold !text-white">
@@ -20,25 +32,16 @@ export default function WeatherCard({ data }: Props) {
       </div>
       <div className="flex w-full justify-between">
         <div className="flex flex-col gap-2">
+          <span className="text-gray-500">Feels Like</span>
+          <p>{data.current.feels_like}°F</p>
+        </div>
+        <div className="flex flex-col gap-2">
           <span className="text-gray-500">Humidity</span>
           <p>{data.current.humidity}%</p>
         </div>
         <div className="flex flex-col gap-2">
           <span className="text-gray-500">Wind</span>
           <p>{data.current.wind_speed} mph</p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <span className="text-gray-500">Feels Like</span>
-          <p>{data.current.feels_like}°F</p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <span className="text-gray-500">Sunrise</span>
-          <p>
-            {new Date(data.current.sunrise * 1000).toLocaleTimeString(
-              undefined,
-              timeOptions
-            )}
-          </p>
         </div>
       </div>
       {/* Hourly forecast */}
@@ -76,12 +79,6 @@ export default function WeatherCard({ data }: Props) {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }
-
-const timeOptions = {
-  hour: "numeric",
-  minute: "2-digit",
-  hour12: true,
-} as { hour: "numeric"; minute: "2-digit"; hour12: true }

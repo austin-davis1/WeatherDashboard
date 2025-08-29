@@ -49,7 +49,11 @@ function MapCenter({ lat, lon }: { lat: number; lon: number }) {
 
   useEffect(() => {
     if (lat && lon) {
-      map.setView([lat, lon], map.getZoom())
+      map.panTo([lat, lon], {
+        animate: true,
+        duration: 1,
+        easeLinearity: 0.2,
+      })
     }
   }, [lat, lon, map])
 
