@@ -101,79 +101,104 @@ export const GeocodeSchema = z.array(
   })
 )
 
-const StatsResultSchema = z.object({
-  month: z.number(),
-  day: z.number(),
-  temp: z.object({
-    record_min: z.number(),
-    record_max: z.number(),
-    average_min: z.number(),
-    average_max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
+export const AirPollutionSchema = z.object({
+  coord: z.object({
+    lon: z.number(),
+    lat: z.number(),
   }),
-  pressure: z.object({
-    min: z.number(),
-    max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
-  }),
-  humidity: z.object({
-    min: z.number(),
-    max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
-  }),
-  wind: z.object({
-    min: z.number(),
-    max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
-  }),
-  precipitation: z.object({
-    min: z.number(),
-    max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
-  }),
-  clouds: z.object({
-    min: z.number(),
-    max: z.number(),
-    median: z.number(),
-    mean: z.number(),
-    p25: z.number(),
-    p75: z.number(),
-    st_dev: z.number(),
-    num: z.number(),
-  }),
+  list: z.array(
+    z.object({
+      dt: z.number(),
+      main: z.object({
+        aqi: z.number(),
+      }),
+      components: z.object({
+        co: z.number(),
+        no: z.number(),
+        no2: z.number(),
+        o3: z.number(),
+        so2: z.number(),
+        pm2_5: z.number(),
+        pm10: z.number(),
+        nh3: z.number(),
+      }),
+    })
+  ),
 })
 
-export const StatsSchema = z.object({
-  cod: z.number(),
-  city_id: z.number(),
-  calctime: z.number(),
-  result: z.array(StatsResultSchema),
-})
+// const StatsResultSchema = z.object({
+//   month: z.number(),
+//   day: z.number(),
+//   temp: z.object({
+//     record_min: z.number(),
+//     record_max: z.number(),
+//     average_min: z.number(),
+//     average_max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+//   pressure: z.object({
+//     min: z.number(),
+//     max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+//   humidity: z.object({
+//     min: z.number(),
+//     max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+//   wind: z.object({
+//     min: z.number(),
+//     max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+//   precipitation: z.object({
+//     min: z.number(),
+//     max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+//   clouds: z.object({
+//     min: z.number(),
+//     max: z.number(),
+//     median: z.number(),
+//     mean: z.number(),
+//     p25: z.number(),
+//     p75: z.number(),
+//     st_dev: z.number(),
+//     num: z.number(),
+//   }),
+// })
+
+// export const StatsSchema = z.object({
+//   cod: z.number(),
+//   city_id: z.number(),
+//   calctime: z.number(),
+//   result: z.array(StatsResultSchema),
+// })
 
 export type WeatherData = z.infer<typeof WeatherDataSchema>
 export type Geocode = z.infer<typeof GeocodeSchema>

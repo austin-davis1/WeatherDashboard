@@ -1,4 +1,4 @@
-import { GeocodeSchema, StatsSchema, WeatherDataSchema } from "./types"
+import { AirPollutionSchema, GeocodeSchema, WeatherDataSchema } from "./types"
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
@@ -40,11 +40,25 @@ export async function getReverseGeocode({
   return GeocodeSchema.parse(data)
 }
 
-export async function getStats({ lat, lon }: { lat: number; lon: number }) {
+export async function getAirPollution({
+  lat,
+  lon,
+}: {
+  lat: number
+  lon: number
+}) {
   const res = await fetch(
-    `history.openweathermap.org/data/2.5/aggregated/year?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
   )
-  console.log(res)
   const data = await res.json()
-  return StatsSchema.parse(data)
+  return AirPollutionSchema.parse(data)
 }
+
+// export async function getStats({ lat, lon }: { lat: number; lon: number }) {
+//   const res = await fetch(
+//     `history.openweathermap.org/data/2.5/aggregated/year?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+//   )
+//   console.log(res)
+//   const data = await res.json()
+//   return StatsSchema.parse(data)
+// }

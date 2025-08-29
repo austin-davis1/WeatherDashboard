@@ -9,6 +9,7 @@ import DashboardWeatherCard from "../components/DashboardWeatherCard"
 import { ForecastTypeEnum } from "../utils/ForecastTypeEnum"
 import LoadingState from "../components/LoadingState"
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import SidePanel from "@/components/SidePanel"
 
 export default function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState("Bangkok")
@@ -61,7 +62,7 @@ export default function Dashboard() {
           </Suspense>
         </div>
       </div>
-      {/* <SidePanel lat={lat} lon={lon} /> */}
+      <SidePanel lat={lat} lon={lon} />
     </>
   )
 }
