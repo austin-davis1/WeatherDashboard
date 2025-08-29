@@ -1,26 +1,38 @@
 export default function LocationDropdown({
   onChange,
+  selectedLocation,
 }: {
   onChange: (location: string) => void
+  selectedLocation: string
 }) {
   return (
     <select
       className="p-2 rounded-md border"
       defaultValue="Bangkok"
+      value={selectedLocation}
       onChange={(e) => onChange(e.target.value)}
     >
-      <option value="Bangkok">Bangkok</option>
-      <option value="Tokyo">Tokyo</option>
-      <option value="Seoul">Seoul</option>
-      <option value="Dubai">Dubai</option>
-      <option value="Manila">Manila</option>
-      <option value="London">London</option>
-      <option value="New York">New York</option>
-      <option value="Paris">Paris</option>
-      <option value="Berlin">Berlin</option>
-      <option value="Madrid">Madrid</option>
-      <option value="Rome">Rome</option>
-      <option value="Lisbon">Lisbon</option>
+      {selectedLocation === "custom" && <option value="custom">Custom</option>}
+      {locations.map((location) => (
+        <option key={location} value={location}>
+          {location}
+        </option>
+      ))}
     </select>
   )
 }
+
+const locations = [
+  "Bangkok",
+  "Tokyo",
+  "Seoul",
+  "Dubai",
+  "Manila",
+  "London",
+  "New York",
+  "Paris",
+  "Berlin",
+  "Madrid",
+  "Rome",
+  "Lisbon",
+]

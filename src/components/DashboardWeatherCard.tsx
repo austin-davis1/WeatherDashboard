@@ -8,8 +8,7 @@ type Props = {
   type: ForecastTypeEnum
 }
 
-export default function DashboardWeatherCard({ coords, type }: Props) {
-  console.log(type)
+export default function HourlyDailyWeatherCard({ coords, type }: Props) {
   const { lat, lon } = coords
   const { data } = useSuspenseQuery({
     queryKey: ["weather", lat, lon],

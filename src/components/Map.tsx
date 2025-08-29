@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { MapContainer, TileLayer, useMap } from "react-leaflet"
+import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet"
 import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk"
 import "leaflet/dist/leaflet.css"
 import { MapTypeEnum } from "../utils/MapTypeEnum"
@@ -11,13 +11,15 @@ export default function Map({
   lat,
   lon,
   type,
+  onMapClick,
 }: {
   lat: number
   lon: number
   type: MapTypeEnum
+  onMapClick: (lat: number, lon: number) => void
 }) {
   return (
-    <div className="h-144 w-full bg-gray-100 rounded-md overflow-hidden">
+    <div className="h-160 w-full bg-gray-100 rounded-md overflow-hidden">
       {lat && lon ? (
         <MapContainer
           center={[lat, lon]}
@@ -26,6 +28,8 @@ export default function Map({
         >
           <MapTilerLayerComponent />
           <MapCenter lat={lat} lon={lon} />
+          <MapClick onMapClick={onMapClick} />
+          <Marker position={[lat, lon]} />
           <TileLayer
             attribution='&copy; <a href="https://openweathermap.org/">OpenWeatherMap</a>'
             url={`https://tile.openweathermap.org/map/${type}/{z}/{x}/{y}.png?appid=${API_KEY}`}
@@ -49,6 +53,18 @@ function MapCenter({ lat, lon }: { lat: number; lon: number }) {
     }
   }, [lat, lon, map])
 
+  return null
+}
+
+function MapClick({
+  onMapClick,
+}: {
+  onMapClick: (lat: number, lon: number) => void
+}) {
+  const map = useMap()
+  map.on("click", (e) => {
+    onMapClick(e.latlng.lat, e.latlng.lng)
+  })
   return null
 }
 
