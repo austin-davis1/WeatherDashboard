@@ -22,9 +22,7 @@ export default function WeatherCard({ coords }: Props) {
     <Card>
       {/* Current weather */}
       <div className="flex justify-between">
-        <h1 className="!text-6xl font-semibold !text-white">
-          {data.current.temp}°F
-        </h1>
+        <h1 className="!text-6xl font-semibold">{data.current.temp}°F</h1>
         <div className="flex gap-4">
           <h1>{data.current.weather[0].description}</h1>
           <Icon src={data.current.weather[0].icon} />

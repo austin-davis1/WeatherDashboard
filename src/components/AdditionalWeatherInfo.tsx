@@ -29,7 +29,7 @@ export default function AdditionalWeatherInfo({ coords }: Props) {
       {rows.map(({ label, value, Icon }) => (
         <div className="flex justify-between">
           <div className="flex gap-4">
-            <Icon className="size-8 invert" />
+            <Icon className="size-8" />
             <span className="text-gray-500">{label}</span>
           </div>
           <p>
@@ -47,10 +47,7 @@ function FormatComponent({ value, number }: { value: string; number: number }) {
   }
   if (value === "wind_deg") {
     return (
-      <Arrow
-        className="size-8 invert"
-        style={{ transform: `rotate(${number}deg)` }}
-      />
+      <Arrow className="size-8" style={{ transform: `rotate(${number}deg)` }} />
     )
   }
   return number

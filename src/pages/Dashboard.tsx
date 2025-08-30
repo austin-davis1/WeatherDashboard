@@ -5,18 +5,18 @@ import { getGeocode } from "../api"
 import { MapTypeEnum } from "../utils/MapTypeEnum"
 import LocationDropdown from "../components/LocationDropdown"
 import MapTypeDropdown from "../components/MapTypeDropdown"
-import { ForecastTypeEnum } from "../utils/ForecastTypeEnum"
 import LoadingState from "../components/LoadingState"
 import SidePanel from "@/components/SidePanel"
 import WeatherCard from "@/components/WeatherCard"
 import AdditionalWeatherInfo from "@/components/AdditionalWeatherInfo"
+import { ThemeToggle } from "@/components/ui/switch"
+import { useTheme } from "@/components/ThemeProvider"
 
 export default function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState("Bangkok")
   const [mapType, setMapType] = useState<MapTypeEnum>(MapTypeEnum.Precipitation)
-  const [forecastType, setForecastType] = useState(ForecastTypeEnum.HOURLY)
   const [mapClickCount, setMapClickCount] = useState(0)
-
+  const { theme, toggleTheme } = useTheme()
   // Refs used for custom location
   const latRef = useRef<number>(0)
   const lonRef = useRef<number>(0)
@@ -43,6 +43,10 @@ export default function Dashboard() {
 
   return (
     <>
+      <div className="flex flex-row justify-between items-center mb-8">
+        <h1 className="!text-4xl !font-bold">Weather Dashboard</h1>
+        <ThemeToggle checked={theme === "dark"} onCheckedChange={toggleTheme} />
+      </div>
       <div className="flex flex-col gap-8">
         <div className="flex flex-row gap-4">
           <LocationDropdown

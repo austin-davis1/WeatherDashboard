@@ -4,6 +4,7 @@ import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk"
 import "leaflet/dist/leaflet.css"
 import { MapTypeEnum } from "../utils/MapTypeEnum"
 import LoadingState from "./LoadingState"
+import { useTheme } from "./ThemeProvider"
 
 const API_KEY = import.meta.env.VITE_API_KEY
 
@@ -75,11 +76,12 @@ function MapClick({
 // Custom component to add MapTiler layer
 function MapTilerLayerComponent() {
   const map = useMap()
+  const { theme } = useTheme()
 
   useEffect(() => {
     const mtLayer = new MaptilerLayer({
       apiKey: "IhKaCSDZTkOXDUTqcSbm",
-      style: "backdrop-dark",
+      style: theme === "light" ? "basic" : "backdrop-dark",
     })
 
     mtLayer.addTo(map)
@@ -87,7 +89,7 @@ function MapTilerLayerComponent() {
     return () => {
       map.removeLayer(mtLayer)
     }
-  }, [map])
+  }, [map, theme])
 
   return null
 }
