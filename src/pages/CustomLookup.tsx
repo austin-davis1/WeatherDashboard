@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { getWeather } from "../api"
-import WeatherCard from "../components/WeatherCard"
+import DailyForecast from "../components/DailyForecast"
 import Map from "../components/Map"
 
 function CustomLookup() {
@@ -47,7 +47,7 @@ function CustomLookup() {
               Get Weather!
             </button>
           </div>
-          {data && <WeatherCard data={data} />}
+          {data && <DailyForecast data={data} />}
           {data && <Map lat={data.lat} lon={data.lon} />}
         </div>
       </div>

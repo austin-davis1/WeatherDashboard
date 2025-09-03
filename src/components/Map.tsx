@@ -20,7 +20,7 @@ export default function Map({
   onMapClick: (lat: number, lon: number) => void
 }) {
   return (
-    <div className="h-160 w-full bg-gray-100 rounded-md overflow-hidden">
+    <>
       {lat && lon ? (
         <MapContainer
           center={[lat, lon]}
@@ -40,7 +40,7 @@ export default function Map({
       ) : (
         <LoadingState />
       )}
-    </div>
+    </>
   )
 }
 
@@ -81,7 +81,7 @@ function MapTilerLayerComponent() {
   useEffect(() => {
     const mtLayer = new MaptilerLayer({
       apiKey: "IhKaCSDZTkOXDUTqcSbm",
-      style: theme === "light" ? "basic" : "backdrop-dark",
+      style: theme === "light" ? "basic" : "basic-dark",
     })
 
     mtLayer.addTo(map)

@@ -25,18 +25,20 @@ export default function AdditionalWeatherInfo({ coords }: Props) {
       }),
   })
   return (
-    <Card>
-      {rows.map(({ label, value, Icon }) => (
-        <div className="flex justify-between">
-          <div className="flex gap-4">
-            <Icon className="size-8" />
-            <span className="text-gray-500">{label}</span>
+    <Card title="Additional Weather Info">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+        {rows.map(({ label, value, Icon }) => (
+          <div className="flex justify-between">
+            <div className="flex gap-4">
+              <Icon className="size-8" />
+              <span className="text-gray-500">{label}</span>
+            </div>
+            <p>
+              <FormatComponent value={value} number={data.current[value]} />
+            </p>
           </div>
-          <p>
-            <FormatComponent value={value} number={data.current[value]} />
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
     </Card>
   )
 }
