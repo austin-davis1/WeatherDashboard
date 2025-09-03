@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query"
-import Icon from "./Icon"
+import Icon from "../Icon"
 import { getWeather } from "@/api"
 import Card from "./Card"
 

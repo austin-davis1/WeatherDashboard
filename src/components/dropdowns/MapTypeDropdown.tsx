@@ -1,4 +1,4 @@
-import { MapTypeEnum } from "../utils/MapTypeEnum"
+import { MapTypeEnum } from "@/utils/MapTypeEnum"
 
 export default function MapTypeDropdown({
   onChange,

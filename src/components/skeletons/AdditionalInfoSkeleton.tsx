@@ -1,8 +1,8 @@
-import Card from "../Card"
+import Card from "../cards/Card"
 
 export default function AdditionalInfoSkeleton() {
   return (
-    <Card>
+    <Card title="Additional Weather Info">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
         {Array.from({ length: 6 }).map(() => (
           <div className="flex justify-between">
