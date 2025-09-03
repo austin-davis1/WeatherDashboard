@@ -51,14 +51,18 @@ export default function Dashboard() {
       <div className="flex flex-col gap-8 pb-8">
         <div className="flex flex-row justify-between items-center">
           <h1 className="!text-4xl !font-bold">Weather Dashboard</h1>
-          <div className="flex gap-4">
-            <h1 className="text-2xl font-semibold">Location:</h1>
-            <LocationDropdown
-              onChange={setSelectedLocation}
-              selectedLocation={selectedLocation}
-            />
-            <h1 className="text-2xl font-semibold">Map Type:</h1>
-            <MapTypeDropdown onChange={setMapType} />
+          <div className="flex gap-8">
+            <div className="flex gap-4">
+              <h1 className="text-2xl font-semibold">Location:</h1>
+              <LocationDropdown
+                onChange={setSelectedLocation}
+                selectedLocation={selectedLocation}
+              />
+            </div>
+            <div className="flex gap-4">
+              <h1 className="text-2xl font-semibold">Map Type:</h1>
+              <MapTypeDropdown onChange={setMapType} />
+            </div>
           </div>
           <ThemeToggle
             checked={theme === "dark"}
