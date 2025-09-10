@@ -1,3 +1,11 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 export default function LocationDropdown({
   onChange,
   selectedLocation,
@@ -6,19 +14,25 @@ export default function LocationDropdown({
   selectedLocation: string
 }) {
   return (
-    <select
-      className="p-2 rounded-md border"
+    <Select
       defaultValue="Bangkok"
       value={selectedLocation}
-      onChange={(e) => onChange(e.target.value)}
+      onValueChange={(value) => onChange(value)}
     >
-      {selectedLocation === "custom" && <option value="custom">Custom</option>}
-      {locations.map((location) => (
-        <option key={location} value={location}>
-          {location}
-        </option>
-      ))}
-    </select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent className="z-10005">
+        {selectedLocation === "custom" && (
+          <SelectItem value="custom">Custom</SelectItem>
+        )}
+        {locations.map((location) => (
+          <SelectItem key={location} value={location}>
+            {location}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }
 

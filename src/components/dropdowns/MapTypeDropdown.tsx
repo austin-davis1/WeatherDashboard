@@ -1,4 +1,11 @@
 import { MapTypeEnum } from "@/utils/MapTypeEnum"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default function MapTypeDropdown({
   onChange,
@@ -6,19 +13,23 @@ export default function MapTypeDropdown({
   onChange: (type: MapTypeEnum) => void
 }) {
   return (
-    <select
-      className="p-2 rounded-md border"
+    <Select
       defaultValue={MapTypeEnum.Precipitation}
-      onChange={(e) => onChange(e.target.value as MapTypeEnum)}
+      onValueChange={(value) => onChange(value as MapTypeEnum)}
     >
-      {Object.keys(MapTypeEnum).map((type) => (
-        <option
-          value={MapTypeEnum[type as keyof typeof MapTypeEnum]}
-          key={type}
-        >
-          {type}
-        </option>
-      ))}
-    </select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent className="z-10005">
+        {Object.keys(MapTypeEnum).map((type) => (
+          <SelectItem
+            value={MapTypeEnum[type as keyof typeof MapTypeEnum]}
+            key={type}
+          >
+            {type}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
   )
 }

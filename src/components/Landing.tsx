@@ -6,7 +6,7 @@ export default function Landing() {
   return (
     <div
       className={clsx(
-        "w-screen h-screen fixed transition-transform duration-700 ease-in-out z-10000 isolate",
+        "w-screen h-screen fixed transition-transform duration-700 ease-in-out z-11000 isolate",
         !isLanding && "-translate-x-full"
       )}
     >
