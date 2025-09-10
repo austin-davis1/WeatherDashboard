@@ -2,7 +2,7 @@ import Card from "../cards/Card"
 
 export default function HourlyForecastSkeleton() {
   return (
-    <Card title="Hourly Forecast" className="overflow-x-scroll">
+    <Card title="Hourly Forecast (48 Hours)" className="overflow-x-scroll">
       <div className="flex gap-6 flex-1">
         {Array.from({ length: 45 }).map(() => (
           <div className="flex flex-col items-center gap-2 p-2">

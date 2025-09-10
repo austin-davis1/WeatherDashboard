@@ -28,7 +28,7 @@ export default function DailyForecast({ coords }: Props) {
                 weekday: "short",
               })}
             </p>
-            <div className="rounded-full p-0.5 dark:bg-background bg-foreground">
+            <div className="rounded-full p-0.5 bg-ocean-blue dark:bg-background">
               <Icon src={day.weather[0].icon} />
             </div>
             <p>{Math.round(day.temp.day)}°F</p>

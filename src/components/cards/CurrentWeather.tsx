@@ -28,7 +28,9 @@ export default function CurrentWeather({ coords }: Props) {
             <h1 className="capitalize text-xl">
               {data.current.weather[0].description}
             </h1>
-            <Icon src={data.current.weather[0].icon} className="size-14" />
+            <div className="rounded-full p-0.5 bg-ocean-blue dark:bg-background">
+              <Icon src={data.current.weather[0].icon} className="size-14" />
+            </div>
           </div>
         </div>
         <div>
