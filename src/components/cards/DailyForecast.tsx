@@ -20,7 +20,7 @@ export default function DailyForecast({ coords }: Props) {
   return (
     <Card title="Daily Forecast">
       {/* Daily forecast */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-4.5">
         {data.daily.map((day) => (
           <div className="flex justify-between">
             <p className="w-9">
@@ -28,7 +28,9 @@ export default function DailyForecast({ coords }: Props) {
                 weekday: "short",
               })}
             </p>
-            <Icon src={day.weather[0].icon} />
+            <div className="rounded-full p-0.5 dark:bg-background bg-foreground">
+              <Icon src={day.weather[0].icon} />
+            </div>
             <p>{Math.round(day.temp.day)}°F</p>
             <p className="text-gray-500/75">{Math.round(day.temp.min)}°F</p>
             <p className="text-gray-500/75">{Math.round(day.temp.max)}°F</p>

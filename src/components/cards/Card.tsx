@@ -16,7 +16,7 @@ export default function Card({
         className
       )}
     >
-      <h2 className="text-2xl font-semibold">{title}</h2>
+      <h2 className="text-2xl font-semibold sticky left-0">{title}</h2>
       <div className="animate-[fade-in_0.6s_ease-out_forwards]">{children}</div>
     </div>
   )

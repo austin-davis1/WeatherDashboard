@@ -30,7 +30,7 @@ export default function HourlyForecast({ coords }: Props) {
                 timeOptions
               )}
             </p>
-            <div className="rounded-full p-2">
+            <div className="rounded-full p-1 dark:bg-background bg-foreground">
               <Icon src={hour.weather[0].icon} />
             </div>
             <p>{Math.round(hour.temp)}°F</p>
