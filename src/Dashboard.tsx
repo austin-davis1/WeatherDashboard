@@ -90,7 +90,7 @@ export default function Dashboard() {
           </Suspense>
         </div>
         {/* Hourly forecast */}
-        <div className="col-span-1 2xl:col-span-2 2xl:row-span-1 2xl:order-3 order-4">
+        <div className="col-span-1 md:col-span-2 2xl:col-span-2 2xl:row-span-1 2xl:order-3 order-4">
           <Suspense fallback={<HourlyForecastSkeleton />}>
             <HourlyForecast coords={{ lat, lon }} />
           </Suspense>
@@ -102,7 +102,7 @@ export default function Dashboard() {
           </Suspense>
         </div>
         {/* Additional info */}
-        <div className="col-span-1 2xl:col-span-2 md:row-span-1 order-5">
+        <div className="col-span-1 md:col-span-2 2xl:col-span-2 md:row-span-1 order-5">
           <Suspense fallback={<AdditionalInfoSkeleton />}>
             <AdditionalWeatherInfo coords={{ lat, lon }} />
           </Suspense>
