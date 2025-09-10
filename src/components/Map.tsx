@@ -68,7 +68,7 @@ function MapClick({
 }) {
   const map = useMap()
   map.on("click", (e) => {
-    onMapClick(e.latlng.lat, e.latlng.lng)
+    onMapClick(Number(e.latlng.lat.toFixed(7)), Number(e.latlng.lng.toFixed(7)))
   })
   return null
 }

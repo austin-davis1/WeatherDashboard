@@ -19,11 +19,13 @@ export default function CurrentWeather({ coords }: Props) {
   })
   return (
     <Card title="Current Weather">
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-6xl font-semibold">{data.current.temp}°F</h1>
-          <div className="flex gap-4 items-center">
-            <h1 className="capitalize text-2xl font-semibold">
+      <div className="flex flex-col justify-around gap-4 md:gap-0 items-center h-full">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-6xl font-semibold text-center">
+            {data.current.temp}°F
+          </h1>
+          <div className="flex gap-2 justify-center items-center">
+            <h1 className="capitalize text-xl">
               {data.current.weather[0].description}
             </h1>
             <Icon src={data.current.weather[0].icon} className="size-14" />
@@ -31,9 +33,14 @@ export default function CurrentWeather({ coords }: Props) {
         </div>
         <div>
           <div className="flex flex-col gap-2">
-            <p className="font-semibold text-2xl">Time:</p>{" "}
+            <p className="text-xl text-center">Local Time:</p>{" "}
             <p className="font-semibold text-4xl">
-              {new Date(data.current.dt * 1000).toLocaleTimeString()}
+              {new Intl.DateTimeFormat("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+                timeZone: data.timezone,
+              }).format(new Date(data.current.dt * 1000))}
             </p>
           </div>
         </div>
