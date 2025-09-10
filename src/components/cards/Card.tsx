@@ -12,7 +12,7 @@ export default function Card({
   return (
     <div
       className={clsx(
-        "bg-card p-4 rounded-xl size-full flex flex-col gap-4 shadow-md",
+        "bg-gradient-to-br from-card to-card/60 p-4 rounded-xl size-full flex flex-col gap-4 shadow-md",
         className
       )}
     >
