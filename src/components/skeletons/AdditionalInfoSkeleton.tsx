@@ -7,12 +7,12 @@ export default function AdditionalInfoSkeleton() {
         {Array.from({ length: 6 }).map(() => (
           <div className="flex justify-between">
             <div className="flex gap-4">
-              <div className="size-8 animate-pulse bg-accent rounded-full" />
-              <div className="animate-pulse bg-accent h-fit rounded-full">
+              <div className="size-8 animate-pulse bg-foreground/25 dark:bg-accent rounded-full" />
+              <div className="animate-pulse bg-foreground/25 dark:bg-accent h-fit rounded-full">
                 <p className="invisible">Pressure (hPa)</p>
               </div>
             </div>
-            <div className="animate-pulse rounded-full size-8 bg-accent" />
+            <div className="animate-pulse rounded-full size-8 bg-foreground/25 dark:bg-accent" />
           </div>
         ))}
       </div>
