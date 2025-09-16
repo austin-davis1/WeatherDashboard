@@ -7,6 +7,28 @@ A modern, responsive weather application built with React and TypeScript that pr
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue?style=for-the-badge&logo=typescript)
 ![Vite](https://img.shields.io/badge/Vite-7.1.2-646CFF?style=for-the-badge&logo=vite)
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="public/Screenshot 2025-09-15 193243.png" alt="Weather Dashboard Main View" width="80%" />
+  <p><em>Main dashboard with current weather and interactive map</em></p>
+</div>
+
+<div align="center">
+  <img src="public/Screenshot 2025-09-15 202805.png" alt="Weather Dashboard Dark Mode" width="80%" />
+  <p><em>Dark mode theme with precipitation overlay</em></p>
+</div>
+
+<div align="center">
+  <img src="public/Screenshot 2025-09-15 202839.png" alt="Weather Dashboard Map Types" width="80%" />
+  <p><em>Temperature overlay on interactive map</em></p>
+</div>
+
+<div align="center">
+  <img src="public/Screenshot 2025-09-15 202904.png" alt="Weather Dashboard Additional Features" width="80%" />
+  <p><em>Additional weather information and forecasts</em></p>
+</div>
+
 ## ✨ Features
 
 ### 🌍 **Interactive Weather Maps**
@@ -16,12 +38,22 @@ A modern, responsive weather application built with React and TypeScript that pr
 - **Real-time Updates**: Live weather data with automatic map re-centering
 - **Dark/Light Theme**: Adaptive map styling based on user preference
 
+<div align="center">
+  <img src="public/Screenshot (359).png" alt="Map Types Demo" width="70%" />
+  <p><em>Different weather overlay types available on the interactive map</em></p>
+</div>
+
 ### 📊 **Comprehensive Weather Data**
 
 - **Current Conditions**: Temperature, humidity, wind speed, feels-like temperature
 - **Hourly Forecast**: 24-hour detailed weather predictions with precipitation probability
 - **Daily Forecast**: 7-day extended forecast with min/max temperatures
 - **Additional Metrics**: UV index, pressure, cloudiness, sunrise/sunset times, wind direction
+
+<div align="center">
+  <img src="public/Screenshot (360).png" alt="Weather Data Cards" width="70%" />
+  <p><em>Detailed weather information displayed in organized cards</em></p>
+</div>
 
 ### 🎨 **Modern UI/UX**
 
@@ -30,6 +62,11 @@ A modern, responsive weather application built with React and TypeScript that pr
 - **Skeleton Loading**: Beautiful loading states while fetching data
 - **Interactive Cards**: Hover effects and smooth animations
 - **Custom Icons**: Weather-specific SVG icons for better visual representation
+
+<div align="center">
+  <img src="public/Screenshot (361).png" alt="UI/UX Features" width="70%" />
+  <p><em>Modern interface with responsive design and smooth animations</em></p>
+</div>
 
 ### 🚀 **Performance & Developer Experience**
 
