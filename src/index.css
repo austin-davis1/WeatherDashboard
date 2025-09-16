@@ -3,10 +3,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-ocean-blue: #94c1e1;
-}
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -118,25 +114,6 @@
   filter: invert(1);
 }
 
-button {
-  cursor: pointer;
-}
-
-option {
-  color: var(--color-primary);
-  background-color: var(--color-background);
-}
-
-td,
-th {
-  text-align: center;
-}
-
-td {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-semibold);
-}
-
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -182,6 +159,7 @@ td {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-ocean-blue: #94c1e1;
 }
 
 @layer base {

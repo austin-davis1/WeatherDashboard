@@ -21,7 +21,7 @@ export default function HourlyForecast({ coords }: Props) {
   return (
     <Card title="Hourly Forecast (48 Hours)" className="overflow-x-scroll">
       {/* Hourly forecast */}
-      <div className="flex gap-6 flex-1">
+      <div className="flex gap-6">
         {data.hourly.map((hour) => (
           <div className="flex flex-col items-center gap-2 p-2">
             <p className="whitespace-nowrap">

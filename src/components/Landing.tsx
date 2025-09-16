@@ -6,7 +6,7 @@ export default function Landing() {
   return (
     <div
       className={clsx(
-        "w-screen h-screen fixed transition-transform duration-700 ease-in-out z-11000 isolate",
+        "w-screen h-screen fixed transition-transform duration-700 ease-in-out z-1002 isolate",
         !isLanding && "-translate-x-full"
       )}
     >
@@ -19,8 +19,10 @@ export default function Landing() {
       />
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="flex flex-col items-center justify-center h-screen relative z-10">
-        <h1 className="!text-6xl !text-white font-bold">Find the weather,</h1>
-        <h1 className="!text-6xl !text-blue-500 font-bold">
+        <h1 className="text-6xl text-white font-bold text-center">
+          Find the weather,
+        </h1>
+        <h1 className="text-6xl text-blue-500 font-bold text-center">
           Anywhere in the world
         </h1>
         <button

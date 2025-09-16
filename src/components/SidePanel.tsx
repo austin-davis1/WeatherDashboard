@@ -25,7 +25,7 @@ export default function SidePanel(props: { lat: number; lon: number }) {
   return (
     <div
       className={clsx(
-        "fixed z-10005 top-0 right-0 h-screen w-[var(--sidebar-width)] bg-sidebar-accent lg:translate-x-0! p-4 py-8 transition-transform duration-300 overflow-y-scroll shadow-md",
+        "fixed z-1001 top-0 right-0 h-screen w-[var(--sidebar-width)] bg-sidebar-accent lg:translate-x-0! p-4 py-8 transition-transform duration-300 overflow-y-scroll shadow-md",
         isSidePanelOpen ? "translate-x-0" : "translate-x-full"
       )}
     >

@@ -24,11 +24,11 @@ export default function CurrentWeather({ coords }: Props) {
           <h1 className="text-6xl font-semibold text-center">
             {data.current.temp}°F
           </h1>
-          <div className="flex gap-2 justify-center items-center">
+          <div className="flex gap-4 justify-center items-center">
             <h1 className="capitalize text-xl">
               {data.current.weather[0].description}
             </h1>
-            <div className="rounded-full p-0.5 bg-ocean-blue dark:bg-background">
+            <div className="rounded-full bg-ocean-blue dark:bg-background">
               <Icon src={data.current.weather[0].icon} className="size-14" />
             </div>
           </div>

@@ -19,10 +19,10 @@ export default function LocationDropdown({
       value={selectedLocation}
       onValueChange={(value) => onChange(value)}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-45">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
-      <SelectContent className="z-10005">
+      <SelectContent className="z-1001">
         {selectedLocation === "custom" && (
           <SelectItem value="custom">Custom</SelectItem>
         )}

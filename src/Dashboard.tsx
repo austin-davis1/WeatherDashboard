@@ -16,6 +16,7 @@ import HourlyForecastSkeleton from "@/components/skeletons/HourlyForecastSkeleto
 import DailyForecastSkeleton from "@/components/skeletons/DailyForecastSkeleton"
 import CurrentWeatherSkeleton from "@/components/skeletons/CurrentWeatherSkeleton"
 import CurrentWeather from "@/components/cards/CurrentWeather"
+import MapLegend from "./components/MapLegend"
 
 export default function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState("Bangkok")
@@ -80,8 +81,9 @@ export default function Dashboard() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 2xl:grid-rows-4 gap-4 overflow-hidden 2xl:h-[calc(100vh-72.53px-64px)] p-2">
         {/* Map */}
-        <div className="col-span-1 md:col-span-2 2xl:col-span-4 h-120 2xl:h-auto 2xl:row-span-2 overflow-hidden order-1">
+        <div className="col-span-1 md:col-span-2 2xl:col-span-4 h-120 2xl:h-auto 2xl:row-span-2 overflow-hidden order-1 relative">
           <Map lat={lat} lon={lon} type={mapType} onMapClick={onMapClick} />
+          <MapLegend type={mapType} />
         </div>
         {/* Current weather */}
         <div className="col-span-1 2xl:row-span-2 order-2">

@@ -8,7 +8,7 @@ export default function MobileHeader() {
   const { theme, toggleTheme } = useTheme()
   const { setIsSidePanelOpen } = useContext(SidePanelContext)
   return (
-    <div className="w-full h-16 bg-background fixed top-0 left-0 z-10001 lg:hidden flex items-center justify-between px-4">
+    <div className="w-full h-16 bg-background fixed top-0 left-0 z-1001 lg:hidden flex items-center justify-between px-4">
       <div className="ml-auto flex items-center gap-12">
         <ThemeToggle checked={theme === "dark"} onCheckedChange={toggleTheme} />
         <button onClick={() => setIsSidePanelOpen((prev) => !prev)}>

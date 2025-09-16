@@ -17,10 +17,10 @@ export default function MapTypeDropdown({
       defaultValue={MapTypeEnum.Precipitation}
       onValueChange={(value) => onChange(value as MapTypeEnum)}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-45">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
-      <SelectContent className="z-10005">
+      <SelectContent className="z-1001">
         {Object.keys(MapTypeEnum).map((type) => (
           <SelectItem
             value={MapTypeEnum[type as keyof typeof MapTypeEnum]}
